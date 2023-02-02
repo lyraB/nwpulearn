@@ -3,7 +3,7 @@
 <mapper namespace="com.nwpu.content.mapper.CourseMarketMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.nwpu.content.model.pojo.CourseMarket">
+    <resultMap id="BaseResultMap" type="com.nwpu.content.model.po.CourseMarket">
         <id column="id" property="id" />
         <result column="charge" property="charge" />
         <result column="price" property="price" />

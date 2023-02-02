@@ -1,6 +1,6 @@
 package com.nwpu.content.service;
 
-import com.nwpu.content.model.pojo.Teachplan;
+import com.nwpu.content.model.po.Teachplan;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

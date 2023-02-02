@@ -1,8 +1,7 @@
 package com.nwpu.content.mapper;
 
-import com.nwpu.content.model.pojo.TeachplanMedia;
+import com.nwpu.content.model.po.TeachplanMedia;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.springframework.stereotype.Repository;
 
 /**
  * <p>

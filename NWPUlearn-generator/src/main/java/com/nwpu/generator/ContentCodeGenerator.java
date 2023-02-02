@@ -79,7 +79,7 @@ public class ContentCodeGenerator {
 
 		pc.setServiceImpl("service.imple");
 		pc.setXml("mapper");
-		pc.setEntity("model.pojo");
+		pc.setEntity("model.po");
 		mpg.setPackageInfo(pc);
 
 

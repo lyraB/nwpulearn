@@ -1,4 +1,4 @@
-package com.nwpu.content.model.pojo;
+package com.nwpu.content.model.po;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

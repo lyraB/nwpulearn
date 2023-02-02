@@ -3,7 +3,7 @@
 <mapper namespace="com.nwpu.content.mapper.TeachplanMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.nwpu.content.model.pojo.Teachplan">
+    <resultMap id="BaseResultMap" type="com.nwpu.content.model.po.Teachplan">
         <id column="id" property="id" />
         <result column="pname" property="pname" />
         <result column="parentid" property="parentid" />
