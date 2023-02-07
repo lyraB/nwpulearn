@@ -43,12 +43,12 @@ public class Teachplan implements Serializable {
     private String mediaType;
 
     /**
-     * 开始直播时间
+     * 开始时间
      */
     private LocalDateTime startTime;
 
     /**
-     * 直播结束时间
+     * 结束时间
      */
     private LocalDateTime endTime;
 

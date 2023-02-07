@@ -26,12 +26,12 @@ public class CourseBase implements Serializable {
     private Long id;
 
     /**
-     * 机构ID
+     * 学院ID
      */
     private Long companyId;
 
     /**
-     * 机构名称
+     * 学院名称
      */
     private String companyName;
 
