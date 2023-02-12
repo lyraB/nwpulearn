@@ -10,6 +10,7 @@ import com.nwpu.content.model.po.CourseMarket;
  *
  * @author yfh
  */
+
 public interface CourseMarketMapper extends BaseMapper<CourseMarket> {
 
 }

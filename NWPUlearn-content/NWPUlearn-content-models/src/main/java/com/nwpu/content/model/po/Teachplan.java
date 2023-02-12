@@ -19,6 +19,9 @@ public class Teachplan implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 课程计划id
+     */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
@@ -33,7 +36,7 @@ public class Teachplan implements Serializable {
     private Long parentid;
 
     /**
-     * 层级，分为1、2、3级
+     * 层级，分为1、2级
      */
     private Integer grade;
 
