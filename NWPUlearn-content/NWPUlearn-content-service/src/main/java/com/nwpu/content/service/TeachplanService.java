@@ -1,9 +1,12 @@
 package com.nwpu.content.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.nwpu.content.model.dto.BindTeachplanMediaDto;
 import com.nwpu.content.model.dto.SaveTeachplanDto;
 import com.nwpu.content.model.dto.TeachplanDto;
 import com.nwpu.content.model.po.Teachplan;
+import com.nwpu.content.model.po.TeachplanMedia;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -22,7 +25,7 @@ public interface TeachplanService extends IService<Teachplan> {
      * @return List<TeachplanDto>
      * @author yfh
      */
-    List<TeachplanDto> findTeachplayTree(long courseId);
+    List<TeachplanDto> findTeachplanTree(long courseId);
 
 
     /**
@@ -40,4 +43,27 @@ public interface TeachplanService extends IService<Teachplan> {
      * @author yfh
      */
     void deleteTeachplan(Long id);
+
+    /**
+     * @description 修改课程计划顺序
+     * @param id 课程计划id
+     * @return void
+     * @author yfh
+     */
+    void moveTeachplan(boolean up, Long id);
+
+    /**
+     * @description 教学计划绑定媒资
+     * @param bindTeachplanMediaDto
+     * @return com.nwpu.content.model.po.TeachplanMedia
+     * @author yfh
+     */
+    public TeachplanMedia associationMedia(BindTeachplanMediaDto bindTeachplanMediaDto);
+
+    /**
+     * @description 教学计划绑定媒资
+     * @param teachPlanId
+     * @author yfh
+     */
+    public void associationMedia(Long teachPlanId, String mediaId);
 }

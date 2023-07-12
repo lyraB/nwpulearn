@@ -6,17 +6,13 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.nwpu.base.exception.NwpuException;
 import com.nwpu.base.model.PageParams;
 import com.nwpu.base.model.PageResult;
-import com.nwpu.content.mapper.CourseBaseMapper;
-import com.nwpu.content.mapper.CourseCategoryMapper;
-import com.nwpu.content.mapper.CourseMarketMapper;
+import com.nwpu.content.mapper.*;
 import com.nwpu.content.model.Code;
 import com.nwpu.content.model.dto.AddCourseDto;
 import com.nwpu.content.model.dto.CourseBaseInfoDto;
 import com.nwpu.content.model.dto.EditCourseDto;
 import com.nwpu.content.model.dto.QueryCourseParamsDto;
-import com.nwpu.content.model.po.CourseBase;
-import com.nwpu.content.model.po.CourseCategory;
-import com.nwpu.content.model.po.CourseMarket;
+import com.nwpu.content.model.po.*;
 import com.nwpu.content.service.CourseBaseService;
 import com.nwpu.content.service.CourseMarketService;
 import lombok.extern.slf4j.Slf4j;
@@ -51,6 +47,12 @@ public class CourseBaseServiceImpl extends ServiceImpl<CourseBaseMapper, CourseB
 
     @Autowired
     CourseMarketService courseMarketService;
+
+    @Autowired
+    TeachplanMapper teachplanMapper;
+
+    @Autowired
+    CourseTeacherMapper courseTeacherMapper;
 
     @Override
     public PageResult<CourseBase> queryCourseBaseList(PageParams pageParams, QueryCourseParamsDto queryCourseParamsDto) {
@@ -142,6 +144,24 @@ public class CourseBaseServiceImpl extends ServiceImpl<CourseBaseMapper, CourseB
 
         return getCourseBaseInfo(courseId);
     }
+    @Transactional
+    @Override
+    public void deleteCourse(Long courseId) {
+        CourseBase course = courseBaseMapper.selectById(courseId);
+        if (course == null)
+            NwpuException.cast("课程不存在");
+        courseMarketMapper.deleteById(courseId);
+        LambdaQueryWrapper<Teachplan> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Teachplan::getCourseId, courseId);
+        teachplanMapper.delete(queryWrapper);
+        //TODO: teachplan_media 以及 teachplan_work 表中相关数据未删除
+        LambdaQueryWrapper<CourseTeacher> queryWrapper1 = new LambdaQueryWrapper<>();
+        queryWrapper1.eq(CourseTeacher::getCourseId, courseId);
+        courseTeacherMapper.delete(queryWrapper1);
+
+        courseBaseMapper.deleteById(courseId);
+
+    }
 
     /**
      * @description 根据课程id查询基本信息
@@ -173,7 +193,7 @@ public class CourseBaseServiceImpl extends ServiceImpl<CourseBaseMapper, CourseB
     }
 
     /**
-     * @description 抽取课程营销校验及保存功能
+     * @description 课程营销校验及保存功能
      * @param courseMarket
      * @return int
      * @author yfh

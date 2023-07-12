@@ -1,8 +1,10 @@
 package com.nwpu.content.model.po;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.nwpu.base.exception.ValidationGroups;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 

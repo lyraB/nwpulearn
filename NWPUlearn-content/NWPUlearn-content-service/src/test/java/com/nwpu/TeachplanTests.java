@@ -21,7 +21,7 @@ public class TeachplanTests {
 
     @Test
     void tesetTreeNodeGet(){
-        List<TeachplanDto> result = teachplanService.findTeachplayTree(74L);
+        List<TeachplanDto> result = teachplanService.findTeachplanTree(74L);
         System.out.println(result);
     }
 }

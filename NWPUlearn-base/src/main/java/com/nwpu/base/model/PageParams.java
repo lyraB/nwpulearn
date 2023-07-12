@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import lombok.ToString;
 /**
- * @description 分页查询通用参数
+ * @description 分页查询请求通用参数
  * @author yfh
  * @version 1.0
  */

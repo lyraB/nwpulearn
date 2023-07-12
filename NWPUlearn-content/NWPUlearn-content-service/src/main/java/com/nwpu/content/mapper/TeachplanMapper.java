@@ -20,5 +20,5 @@ public interface TeachplanMapper extends BaseMapper<Teachplan> {
      * @return com.nwpu.content.model.dto.TeachplanDto
      * @author yfh
      */
-    public List<TeachplanDto> selectTreeNodes(long courseId);
+    List<TeachplanDto> selectTreeNodes(long courseId);
 }

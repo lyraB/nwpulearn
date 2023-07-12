@@ -24,6 +24,7 @@ public class GlobalCorsConfig {
         config.addAllowedHeader("*");
         //允许所有请求方法跨域调用
         config.addAllowedMethod("*");
+        //添加映射路径，拦截一切请求
         UrlBasedCorsConfigurationSource source = new
                 UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
